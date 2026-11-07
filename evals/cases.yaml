@@ -1,0 +1,26 @@
+# Each case has an id, a prompt and exactly one check.
+# Supported checks:
+#   contains: <text>     answer contains text (case-insensitive)
+#   equals:   <text>     stripped answer equals text (case-insensitive, trailing "." ignored)
+#   regex:    <pattern>  pattern matches somewhere in the answer
+cases:
+  - id: arithmetic
+    prompt: "What is 2 + 3? Reply with the number only."
+    check:
+      contains: "5"
+  - id: capital
+    prompt: "What is the capital of France? Reply with one word."
+    check:
+      contains: "paris"
+  - id: echo
+    prompt: "Reply with exactly the word PONG and nothing else."
+    check:
+      equals: "pong"
+  - id: color
+    prompt: "What color is a clear daytime sky? Reply with one word."
+    check:
+      contains: "blue"
+  - id: count
+    prompt: "List the numbers from 1 to 3 separated by commas."
+    check:
+      regex: "1\\s*,\\s*2\\s*,\\s*3"
